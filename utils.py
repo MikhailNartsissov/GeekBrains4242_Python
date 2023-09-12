@@ -124,8 +124,10 @@ def note_change(f_note_id: int, f_user_id: int, title: str = None, content: str 
                 try:
                     if title:
                         data[f_note_id]["title"] = title
+                        data[f_note_id]["last_edited"] = datetime.now().strftime("%d/%m/%y %H:%M:%S")
                     if content:
                         data[f_note_id]["content"] = content
+                        data[f_note_id]["last_edited"] = datetime.now().strftime("%d/%m/%y %H:%M:%S")
                 except KeyError:
                     print(RECORD_NOT_FOUND)
                     return -1
